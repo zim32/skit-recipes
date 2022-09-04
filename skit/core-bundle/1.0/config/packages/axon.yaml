@@ -1,0 +1,28 @@
+skit_rest_helper:
+  scan:
+    - '%kernel.project_dir%/vendor/skit/core-bundle/src/Controller'
+
+framework:
+  cache:
+    pools:
+      resource_schema_cache:
+        adapter: cache.adapter.array
+  messenger:
+    transports:
+      async:
+        dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+        retry_strategy:
+          max_retries: 0
+
+doctrine:
+  dbal:
+    types:
+      datetime_immutable_utc: Skit\Bundle\CoreBundle\Component\Resource\Doctrine\DBAL\Types\UTCDateTimeImmutable
+
+
+when@prod:
+  framework:
+    cache:
+      pools:
+        resource_schema_cache:
+          adapter: cache.adapter.system

@@ -1,0 +1,12 @@
+{
+  "bundles": {
+    "Skit\\Bundle\\CoreBundle\\SkitCoreBundle": ["all"]
+  },
+  "copy-from-recipe": {
+    "config/": "%CONFIG_DIR%/",
+    "src/": "%SRC_DIR%/"
+  },
+  "env": {
+    "TASKS_DATABASE_URL": ""
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "bundles": {
+    "Skit\\Bundle\\RestHelperBundle\\SkitRestHelperBundle": ["all"]
+  },
+  "copy-from-recipe": {
+    "config/": "%CONFIG_DIR%/",
+    "src/": "%SRC_DIR%/"
+  },
+  "env": {
+    "API_SCHEMA_URL": "http://your.domain/swagger/doc/schema",
+    "API_ENDPOINT_URL": "http://your.domain/api"
+  }
+}
