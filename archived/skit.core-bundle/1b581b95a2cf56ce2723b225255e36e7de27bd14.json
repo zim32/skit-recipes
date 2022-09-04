@@ -1,0 +1,88 @@
+{
+    "manifests": {
+        "skit/core-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Skit\\Bundle\\CoreBundle\\SkitCoreBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/",
+                    "src/": "%SRC_DIR%/"
+                },
+                "env": {
+                    "TASKS_DATABASE_URL": ""
+                }
+            },
+            "files": {
+                "config/packages/axon.yaml": {
+                    "contents": [
+                        "skit_rest_helper:",
+                        "  scan:",
+                        "    - '%kernel.project_dir%/vendor/skit/core-bundle/src/Controller'",
+                        "",
+                        "framework:",
+                        "  cache:",
+                        "    pools:",
+                        "      resource_schema_cache:",
+                        "        adapter: cache.adapter.array",
+                        "  messenger:",
+                        "    transports:",
+                        "      async:",
+                        "        dsn: '%env(MESSENGER_TRANSPORT_DSN)%'",
+                        "        retry_strategy:",
+                        "          max_retries: 0",
+                        "",
+                        "doctrine:",
+                        "  dbal:",
+                        "    types:",
+                        "      datetime_immutable_utc: Skit\\Bundle\\CoreBundle\\Component\\Resource\\Doctrine\\DBAL\\Types\\UTCDateTimeImmutable",
+                        "",
+                        "",
+                        "when@prod:",
+                        "  framework:",
+                        "    cache:",
+                        "      pools:",
+                        "        resource_schema_cache:",
+                        "          adapter: cache.adapter.system",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/axon.yaml": {
+                    "contents": [
+                        "skit:",
+                        "  resource: '@SkitCoreBundle/config/routes.yaml'"
+                    ],
+                    "executable": false
+                },
+                "src/CronJob/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                },
+                "src/Entity/Generated/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                },
+                "src/MetricCollector/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                },
+                "src/Task/Entity/Generated/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "1b581b95a2cf56ce2723b225255e36e7de27bd14"
+        }
+    }
+}
