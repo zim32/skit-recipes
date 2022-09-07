@@ -9,10 +9,12 @@ framework:
         adapter: cache.adapter.array
   messenger:
     transports:
-      async:
-        dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+      async_tasks:
+        dsn: '%env(MESSENGER_TASKS_TRANSPORT_DSN)%'
         retry_strategy:
           max_retries: 0
+    routing:
+      'Skit\Bundle\CoreBundle\Message\ProcessTaskMessage': async_tasks
 
 doctrine:
   dbal:
