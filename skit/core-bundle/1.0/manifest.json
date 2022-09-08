@@ -4,7 +4,8 @@
   },
   "copy-from-recipe": {
     "config/": "%CONFIG_DIR%/",
-    "src/": "%SRC_DIR%/"
+    "src/": "%SRC_DIR%/",
+    "var/": "%VAR_DIR%/"
   },
   "env": {
     "TASKS_DATABASE_URL": "postgresql://skit-tasks:changeme@127.0.0.1:5432/skit_tasks_db?serverVersion=13&charset=utf8",
