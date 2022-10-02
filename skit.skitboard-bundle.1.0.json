@@ -1,0 +1,77 @@
+{
+    "manifests": {
+        "skit/skitboard-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Skit\\Bundle\\SkitBoardBundle\\SkitBoardBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/",
+                    "assets/": "assets/"
+                }
+            },
+            "files": {
+                "assets/skitboard/components/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                },
+                "assets/skitboard/module.js": {
+                    "contents": [
+                        "export default {",
+                        "",
+                        "    boot() {",
+                        "        console.log('booting app module')",
+                        "    },",
+                        "",
+                        "    // processRoutes(routes) {",
+                        "    //     routes[0].children.push({ path: '', component: () => import('./pages/DashboardPage') });",
+                        "    // },",
+                        "    //",
+                        "    // buildSidebarMenu(menu) {",
+                        "    //",
+                        "    // },",
+                        "    //",
+                        "    // processLocaleMessages(message) {",
+                        "    //",
+                        "    // },",
+                        "    //",
+                        "    // registerDataTableFields(registry) {",
+                        "    //",
+                        "    // },",
+                        "    //",
+                        "    // registerFormFields(registry) {",
+                        "    //",
+                        "    // },",
+                        "    //",
+                        "    // registerUIBuilderComponents(registry) {",
+                        "    //",
+                        "    // }",
+                        "}",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "assets/skitboard/pages/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/packages/skit_board.yaml": {
+                    "contents": [
+                        "skit_board:",
+                        "   # by default skitboard maps to root (\"/\")",
+                        "   #public_path: '/admin'",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "f2efc1f910c6a46f0043c95dc714989c7cbfb357"
+        }
+    }
+}

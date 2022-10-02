@@ -1,0 +1,28 @@
+{
+    "manifests": {
+        "skit/skitboard-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Skit\\Bundle\\SkitBoardBundle\\SkitBoardBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/skit_board.yaml": {
+                    "contents": [
+                        "skit_board:",
+                        "   # by default skitboard maps to root (\"/\")",
+                        "   #public_path: '/admin'",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "89073c2d330d82f7ddeeac828a8d81194a173913"
+        }
+    }
+}

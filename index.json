@@ -5,6 +5,10 @@
             "1.0"
         ],
         "skit/rest-helper-bundle": [
+            "1.0",
+            "1.1"
+        ],
+        "skit/skitboard-bundle": [
             "1.0"
         ]
     },

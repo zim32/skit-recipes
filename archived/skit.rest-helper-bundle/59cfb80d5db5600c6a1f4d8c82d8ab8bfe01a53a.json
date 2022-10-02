@@ -1,0 +1,45 @@
+{
+    "manifests": {
+        "skit/rest-helper-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Skit\\Bundle\\RestHelperBundle\\SkitRestHelperBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/",
+                    "src/": "%SRC_DIR%/"
+                },
+                "env": {
+                    "API_URL": "http://your.domain"
+                }
+            },
+            "files": {
+                "config/packages/skit_rest_helper.yaml": {
+                    "contents": [
+                        "skit_rest_helper:",
+                        "  scan:",
+                        "    - '%kernel.project_dir%/src/Controller'",
+                        "    - '%kernel.project_dir%/src/Entity'"
+                    ],
+                    "executable": false
+                },
+                "config/routes/skit_rest_helper.yaml": {
+                    "contents": [
+                        "swagger:",
+                        "  resource: '@SkitRestHelperBundle/Resources/config/routes.yaml'"
+                    ],
+                    "executable": false
+                },
+                "src/Controller/Api/Resource/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "59cfb80d5db5600c6a1f4d8c82d8ab8bfe01a53a"
+        }
+    }
+}
