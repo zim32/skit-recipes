@@ -1,0 +1,4 @@
+skit_rest_helper:
+  scan:
+    - '%kernel.project_dir%/src/Controller'
+    - '%kernel.project_dir%/src/Entity'

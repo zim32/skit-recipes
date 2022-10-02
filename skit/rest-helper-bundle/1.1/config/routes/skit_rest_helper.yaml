@@ -1,0 +1,2 @@
+swagger:
+  resource: '@SkitRestHelperBundle/Resources/config/routes.yaml'

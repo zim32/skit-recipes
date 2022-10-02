@@ -1,0 +1,12 @@
+{
+  "bundles": {
+    "Skit\\Bundle\\RestHelperBundle\\SkitRestHelperBundle": ["all"]
+  },
+  "copy-from-recipe": {
+    "config/": "%CONFIG_DIR%/",
+    "src/": "%SRC_DIR%/"
+  },
+  "env": {
+    "API_URL": "http://your.domain"
+  }
+}

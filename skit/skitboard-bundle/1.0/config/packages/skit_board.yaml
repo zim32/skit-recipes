@@ -1,0 +1,3 @@
+skit_board:
+   # by default skitboard maps to root ("/")
+   #public_path: '/admin'
