@@ -20,6 +20,24 @@ doctrine:
   dbal:
     types:
       datetime_immutable_utc: Skit\Bundle\CoreBundle\Component\Resource\Doctrine\DBAL\Types\UTCDateTimeImmutable
+    connections:
+      tasks:
+        url: '%env(resolve:TASKS_DATABASE_URL)%'
+        mapping_types:
+          enum: string
+  orm:
+    entity_managers:
+      default:
+        mappings:
+          gedmo_translatable:
+            type: annotation
+            prefix: Gedmo\Translatable\Entity
+            dir: "%kernel.project_dir%/vendor/gedmo/doctrine-extensions/src/Translatable/Entity"
+            alias: GedmoTranslatable
+            is_bundle: false
+      tasks:
+        connection: tasks
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
 
 
 when@prod:
