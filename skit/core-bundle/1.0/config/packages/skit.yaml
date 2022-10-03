@@ -40,6 +40,14 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
 
 
+stof_doctrine_extensions:
+  default_locale: en
+  translation_fallback: true
+  orm:
+    default:
+      translatable: true
+
+
 when@prod:
   framework:
     cache:
