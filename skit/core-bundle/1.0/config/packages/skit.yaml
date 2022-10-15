@@ -21,6 +21,9 @@ doctrine:
     types:
       datetime_immutable_utc: Skit\Bundle\CoreBundle\Component\Resource\Doctrine\DBAL\Types\UTCDateTimeImmutable
     connections:
+      default:
+        mapping_types:
+          enum: string
       tasks:
         url: '%env(resolve:TASKS_DATABASE_URL)%'
         mapping_types:
