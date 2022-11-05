@@ -12,7 +12,7 @@ framework:
   cache:
     pools:
       resource_schema_cache:
-        adapter: cache.adapter.array
+        adapter: cache.adapter.system
   messenger:
     transports:
       async_tasks:
@@ -55,11 +55,3 @@ stof_doctrine_extensions:
   orm:
     default:
       translatable: true
-
-
-when@prod:
-  framework:
-    cache:
-      pools:
-        resource_schema_cache:
-          adapter: cache.adapter.system
