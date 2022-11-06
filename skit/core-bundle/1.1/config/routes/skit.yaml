@@ -1,0 +1,2 @@
+skit:
+  resource: '@SkitCoreBundle/config/routes.yaml'
