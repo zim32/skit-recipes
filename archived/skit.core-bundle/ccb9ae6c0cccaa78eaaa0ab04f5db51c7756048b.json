@@ -1,0 +1,178 @@
+{
+    "manifests": {
+        "skit/core-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Skit\\Bundle\\CoreBundle\\SkitCoreBundle": [
+                        "all"
+                    ],
+                    "AvaiBookSports\\Bundle\\MigrationsMutlipleDatabase\\DoctrineMigrationsMultipleDatabaseBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/",
+                    "src/": "%SRC_DIR%/",
+                    "var/": "%VAR_DIR%/",
+                    "migrations/": "migrations/"
+                },
+                "env": {
+                    "TASKS_DATABASE_URL": "postgresql://skit-tasks:changeme@127.0.0.1:5432/skit_tasks_db?serverVersion=13&charset=utf8",
+                    "MESSENGER_TASKS_TRANSPORT_DSN": "amqp://guest:guest@localhost:5672/%2f/messages?vhost=skit-tasks"
+                }
+            },
+            "files": {
+                "config/packages/skit.yaml": {
+                    "contents": [
+                        "skit:",
+                        "  # configure default field type for primary keys.",
+                        "  # it is recommended to configure it before creating your entities",
+                        "  # possible values are \"bigint\" and \"ulid\" (see https://symfony.com/doc/current/components/uid.html)",
+                        "  default_primary_key_field_type: 'ulid'",
+                        "",
+                        "",
+                        "skit_rest_helper:",
+                        "  scan:",
+                        "    - '%kernel.project_dir%/vendor/skit/core-bundle/src/Controller'",
+                        "",
+                        "",
+                        "framework:",
+                        "  cache:",
+                        "    pools:",
+                        "      resource_schema_cache:",
+                        "        adapter: cache.adapter.system",
+                        "  messenger:",
+                        "    transports:",
+                        "      async_tasks:",
+                        "        dsn: '%env(MESSENGER_TASKS_TRANSPORT_DSN)%'",
+                        "        retry_strategy:",
+                        "          max_retries: 0",
+                        "    routing:",
+                        "      'Skit\\Bundle\\CoreBundle\\Message\\ProcessTaskMessage': async_tasks",
+                        "",
+                        "",
+                        "doctrine:",
+                        "  dbal:",
+                        "    types:",
+                        "      datetime_immutable_utc: Skit\\Bundle\\CoreBundle\\Component\\Resource\\Doctrine\\DBAL\\Types\\UTCDateTimeImmutable",
+                        "    connections:",
+                        "      default:",
+                        "        mapping_types:",
+                        "          enum: string",
+                        "      tasks:",
+                        "        url: '%env(resolve:TASKS_DATABASE_URL)%'",
+                        "        mapping_types:",
+                        "          enum: string",
+                        "  orm:",
+                        "    entity_managers:",
+                        "      default:",
+                        "        mappings:",
+                        "          gedmo_translatable:",
+                        "            type: annotation",
+                        "            prefix: Gedmo\\Translatable\\Entity",
+                        "            dir: \"%kernel.project_dir%/vendor/gedmo/doctrine-extensions/src/Translatable/Entity\"",
+                        "            alias: GedmoTranslatable",
+                        "            is_bundle: false",
+                        "      tasks:",
+                        "        connection: tasks",
+                        "        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware",
+                        "",
+                        "",
+                        "doctrine_migrations_multiple_database:",
+                        "  entity_managers:",
+                        "    default:",
+                        "      migrations_paths:",
+                        "        DoctrineMigrations\\Main: '%kernel.project_dir%/migrations/Main'",
+                        "    tasks:",
+                        "      migrations_paths:",
+                        "        DoctrineMigrations\\Tasks: '%kernel.project_dir%/migrations/Tasks'",
+                        "",
+                        "",
+                        "stof_doctrine_extensions:",
+                        "  default_locale: en",
+                        "  translation_fallback: true",
+                        "  orm:",
+                        "    default:",
+                        "      translatable: true",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/skit.yaml": {
+                    "contents": [
+                        "skit:",
+                        "  resource: '@SkitCoreBundle/config/routes.yaml'"
+                    ],
+                    "executable": false
+                },
+                "migrations/Main/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                },
+                "migrations/Tasks/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                },
+                "src/BatchAction/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                },
+                "src/CronJob/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                },
+                "src/Entity/Generated/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                },
+                "src/ExternalResource/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                },
+                "src/MetricCollector/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                },
+                "src/RowAction/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                },
+                "src/SchemaBuilder/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                },
+                "src/Task/Entity/Generated/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                },
+                "var/resource/config/.gitkeep": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "ccb9ae6c0cccaa78eaaa0ab04f5db51c7756048b"
+        }
+    }
+}
