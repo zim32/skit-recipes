@@ -1,7 +1,7 @@
 export default {
 
     boot() {
-        console.log('booting app module')
+        // console.log('booting my module')
     },
 
     // processRoutes(routes) {
@@ -13,15 +13,15 @@ export default {
     // },
     //
     // processLocaleMessages(message) {
-    //
+    //     messages.fr = { ...messages.fr, ...{ customMessage: 'Translation in french language' } }
     // },
     //
     // registerDataTableFields(registry) {
-    //
+    //     registry.registerField('TestField', () => import('./components/data-table-fields/TestField'))
     // },
     //
     // registerFormFields(registry) {
-    //
+    //     registry.registerField('TestField', () => import('./components/form-fields/TestField'))
     // },
     //
     // registerUIBuilderComponents(registry) {

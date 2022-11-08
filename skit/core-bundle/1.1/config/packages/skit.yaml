@@ -1,8 +1,8 @@
 skit:
   # configure default field type for primary keys.
   # it is recommended to configure it before creating your entities
-  # possible values are "bigint" and "ulid" (see https://symfony.com/doc/current/components/uid.html)
-  default_primary_key_field_type: 'ulid'
+  # possible values are "bigint", "uuid" and "ulid" (see https://symfony.com/doc/current/components/uid.html)
+  default_primary_key_field_type: 'uuid'
 
 
 skit_rest_helper:
